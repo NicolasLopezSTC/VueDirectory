@@ -37,14 +37,14 @@ const selectCard = () => {
         @apply flex flex-col gap-2  pt-6 text-center;
 
     &-name{
-        @apply text-3xl font-thin text-slate-800 tracking-wider;
+        @apply text-3xl font-thin text-blue-800 tracking-wider;
     }
     &-job {
-        @apply -mt-2 text-xs  text-yellow-700 font-bold;
+        @apply -mt-2 text-xs  text-yellow-700 font-extrabold;
     }
    
     &-quote{
-        @apply italic text-slate-800 text-lg pt-4;
+        @apply italic text-pink-800 text-lg pt-4;
     }
  }
 }
