@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import { isAuthenticated } from '@/composables/useAuth'
+import { useAuth } from '@/composables/useAuth'
 
 const { isAuthenticated } = useAuth()
 
@@ -24,7 +24,7 @@ const router = createRouter({
   routes,
 })
 
-router.beforeEach(=> {
+router.beforeEach((to)=> {
   
   if (to.meta.requiresAuth && !isAuthenticated.value) {
     return {name:'Login', query: { redirect: to.fullPath}}
