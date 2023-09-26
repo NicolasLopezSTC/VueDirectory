@@ -1,20 +1,19 @@
 <script setup>
-import MainSearch from '@/components/MainSearch.vue'
-import MainCards from '@/components/MainCards.vue'
-import MainPagination from '@/components/MainPagination.vue'
+  import MainSearch from '@/components/MainSearch.vue'
+  import MainCards from '@/components/MainCards.vue'
+  import MainPagination from '@/components/MainPagination.vue'
 </script>
 
 <template>
-    <div class="wrapper">
+  <div class="wrapper">
     <MainSearch />
-     <MainCards />
-     <MainPagination />
-   </div>
+    <MainCards />
+    <MainPagination />
+  </div>
 </template>
 
 <style scoped lang="postcss">
-.wrapper{
-@apply flex flex-col container mx-auto py-4 gap-4;
-}
-
+  .wrapper {
+    @apply container mx-auto flex flex-col gap-4 py-4;
+  }
 </style>
