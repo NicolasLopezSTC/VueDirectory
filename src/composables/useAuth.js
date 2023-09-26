@@ -31,6 +31,7 @@ const user = ref({})
 
 export const useAuth = () => {
     const login = (username, password) => {
+
         const user = dbUsers.find((u) => u.username == username && u.password == password)
         if (user) {
             const {name, role, email, username } = user
@@ -40,5 +41,9 @@ export const useAuth = () => {
         }
         return false
     }
-return {isAuthenticated, user, login}
+    const logout = () => {
+        isAuthenticated.value = false
+        user.value = {}
+    }
+return {isAuthenticated, user, login, logout}
 }

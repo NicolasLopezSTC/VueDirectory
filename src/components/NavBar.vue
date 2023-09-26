@@ -2,7 +2,7 @@
 import { ref } from 'vue'
 import { useAuth } from '@/composables/useAuth'
 
-const {isAuthenticated} = useAuth()
+const {isAuthenticated, logout} = useAuth()
 const brand = ref('🏢Fake Company Directory')
 </script>
 
@@ -13,12 +13,14 @@ const brand = ref('🏢Fake Company Directory')
     <span class="brand-title">{{ brand }}</span>
    </RouterLink>
 
-    <div class="menu">          
+    <div class="menu">  
+        <div>    
         <RouterLink : to="{name: 'Home' }" href="#" class="menu-item">Departments</RouterLink>
+        <div/>
         <div v-if="auth.isAuthenticated">
 
         <RouterLink : to="{name: 'Home' }" href="#" class="menu-item">Settings</RouterLink>
-        <RouterLink : to="{name: 'Home' }" href="#" class="menu-logout">Logout</RouterLink>
+        <button href="#" class="menu-logout"@click="logout">Logout</button>
 </div>
         <div v-else>
         <RouterLink : to="{name: 'Login' }" href="#" class="menu-login">Login</RouterLink>
@@ -43,8 +45,7 @@ nav {
         }
         .menu{
             @apply flex gap-2;
-
-            div {
+           & div {
 
              @apply py-2;
             }
