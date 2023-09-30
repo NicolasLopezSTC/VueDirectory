@@ -1,27 +1,27 @@
 <script setup>
-import { ref } from 'vue'
-import { useRouter, useRoute } from 'vue-router'
+  import { ref } from 'vue'
+  import { useRouter, useRoute } from 'vue-router'
 
-import { useAuth } from '@/composables/useAuth'
-const { login, logout } = useAuth()
+  import { useAuth } from '@/composables/useAuth'
+  const { login, logout } = useAuth()
 
-const router = useRouter()
-const route = useRoute()
+  const router = useRouter()
+  const route = useRoute()
 
-const username = ref('')
-const password = ref('')
+  const username = ref('')
+  const password = ref('')
 
-const logUserIn = () => {
-    if (login(username.value, password.value)) {
-        if (route.query.redirect) {
-            router.push(route.query.redirect)
-        } else {
-            router.push({ name: 'Home' })
-        }
+  const logUserIn = async () => {
+    if (await login(username.value, password.value)) {
+      if (route.query.redirect) {
+        router.push(route.query.redirect)
+      } else {
+        router.push({ name: 'Home' })
+      }
     } else {
-        logout()
+      logout()
     }
-}
+  }
 </script>
 
 

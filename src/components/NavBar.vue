@@ -8,33 +8,28 @@ const brand = ref(import.meta.env.VITE_APP_NAME)
 </script>
 
 <template>
- <nav>
-  <div class="wrapper">
-    <RouterLink :to="{name:  'Home'}" class="brand">
-    <span class="brand-title">{{ brand }}</span>
-   </RouterLink>
-
-    <div class="menu">  
-         <p v-show="isAuthenticated" class="px-2 py-4">
-            Welcome back 
-            <strong
-            ><i>{{user.name}}</i></strong>
+  <nav>
+    <div class="wrapper">
+      <RouterLink :to="{ name: 'Home' }" class="brand">
+        <span class="brand-title">{{ brand }}</span>
+      </RouterLink>
+      <div class="menu">
+        <p v-show="isAuthenticated" class="px-2 py-4">
+          Welcome back
+          <strong>
+            <i>{{ user?.email }}</i>
+          </strong>
         </p>
-
-
-
-        <div v-if="isAuthenticated">        
-        <RouterLink :to="{name: 'Settings' }" href="#" class="menu-item">Settings</RouterLink>
-        <button href="#" class="menu-logout" @click="logout">Logout</button>
-</div>
+        <div v-if="isAuthenticated">
+          <RouterLink :to="{ name: 'Settings' }" href="#" class="menu-item">Settings</RouterLink>
+          <button class="menu-logout" @click="logout">Logout</button>
+        </div>
         <div v-else>
-        <RouterLink :to="{name: 'Login' }" href="#" class="menu-login">Login</RouterLink>
+          <RouterLink :to="{ name: 'Login' }" href="#" class="menu-login">Login</RouterLink>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
- </nav>
-
-
+  </nav>
 </template>
 
 <style scoped lang="postcss">
